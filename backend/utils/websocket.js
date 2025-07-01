@@ -102,7 +102,7 @@ class WebSocketManager {
       const clientInfo = this.clients.get(ws);
       if (!clientInfo) return;
 
-      clientInfo.username = username || username;
+      clientInfo.username = username || "Anonymous";
       this.clients.set(ws, clientInfo); // Update client info
 
       console.log(`👤 User "${clientInfo.username}" joined the chat`);
@@ -223,7 +223,7 @@ class WebSocketManager {
    */
   handleDisconnection(ws) {
     const clientInfo = this.clients.get(ws);
-    const username = clientInfo?.username || username;
+    const username = clientInfo?.username || "Anonymous";
 
     console.log(`👋 User "${username}" disconnected`);
 
