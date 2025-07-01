@@ -85,6 +85,8 @@ The backend server will start on `http://localhost:3001`
 ```bash
 # Navigate to project root (if in backend directory)
 cd ..
+cd frontend
+
 
 # Install frontend dependencies
 npm install
@@ -113,6 +115,7 @@ MongoDB Atlas:
 
 2. In a new terminal, start the frontend:
    ```bash
+   cd frontend
    npm run dev
    ```
 
@@ -121,6 +124,7 @@ MongoDB Atlas:
 ### Production Mode
 1. Build the frontend:
    ```bash
+   cd frontend
    npm run build
    ```
 
@@ -135,9 +139,9 @@ MongoDB Atlas:
 ### Backend Deployment (Render)
 
 # Set environment variables
-heroku config:set MONGODB_URI=your_mongodb_connection_string
-heroku config:set NODE_ENV=production
-heroku config:set FRONTEND_URL=https://your-frontend-url.netlify.app
+MONGODB_URI=your_mongodb_connection_string
+NODE_ENV=production
+FRONTEND_URL=https://your-frontend-url.vercel.app
 
 #### Render:
 1. Connect your GitHub repository to Render
