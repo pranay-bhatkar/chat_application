@@ -63,8 +63,8 @@ A production-ready real-time chat application built with the MERN stack (MongoDB
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
-cd mern-chat-application
+git clone https://github.com/pranay-bhatkar/chat_application
+cd chat_application
 ```
 
 ### 2. Backend Setup
