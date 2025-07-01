@@ -1,4 +1,3 @@
-// ... same imports
 import React, { useState, useEffect, useRef } from "react";
 import { Send, User, Users, Wifi, WifiOff } from "lucide-react";
 
@@ -33,18 +32,28 @@ const ChatInterface: React.FC<ChatInterfaceProps> = ({
   const maxReconnectAttempts = 5;
 
   const getWebSocketUrl = () => {
+    const envUrl = import.meta.env.VITE_WEBSOCKET_URL;
+    if (envUrl) return envUrl;
+
     if (typeof window !== "undefined") {
       const protocol = window.location.protocol === "https:" ? "wss:" : "ws:";
       const host = window.location.hostname;
+
+      // Development environment
       if (host === "localhost" || host === "127.0.0.1") {
         return "ws://localhost:3001";
       }
+
+      // StackBlitz / WebContainer
       if (host.includes("webcontainer-api.io")) {
         const baseUrl = window.location.host.replace(/--\d+--/, "--3001--");
         return `${protocol}//${baseUrl}`;
       }
+
+      // Default: Production hostname
       return `${protocol}//${host}:3001`;
     }
+
     return "ws://localhost:3001";
   };
 
